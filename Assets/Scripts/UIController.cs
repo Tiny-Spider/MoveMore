@@ -33,6 +33,8 @@ public class UIController : MonoBehaviour {
 		panelActivity.SetInactive();
 
 		ShowPanel(panelHome);
+
+		Screen.SetResolution(504, 896, false);
 	}
 
 	public void ShowPanel(Panel panel) {

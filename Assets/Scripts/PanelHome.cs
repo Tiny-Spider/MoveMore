@@ -26,12 +26,11 @@ public class PanelHome : Panel {
 	public RectTransform activityPopup;
 	public RectTransform workoutPopup;
 	public RectTransform teamPopup;
+	public RectTransform closePopup;
 
 
 	void OnEnable() {
-		ShowActivityPopup(false);
-		ShowWorkoutPopup(false);
-		ShowTeamPopup(false);
+		HidePopups();
 
 		pointsHighscoreText.text = string.Format(pointsHighscoreTextFormat, appValues.pointsWeeklyHighscore);
 		minsWeeklyText.text = string.Format(minsWeeklyTextFormat, appValues.minutesWeeklyDone, appValues.minutesWeekly);
@@ -49,13 +48,24 @@ public class PanelHome : Panel {
 
 	public void ShowActivityPopup(bool show) {
 		activityPopup.gameObject.SetActive(show);
+		closePopup.gameObject.SetActive(show);
 	}
 
 	public void ShowWorkoutPopup(bool show) {
 		workoutPopup.gameObject.SetActive(show);
+		closePopup.gameObject.SetActive(show);
 	}
 
 	public void ShowTeamPopup(bool show) {
 		teamPopup.gameObject.SetActive(show);
+		closePopup.gameObject.SetActive(show);
+	}
+
+	public void HidePopups() {
+		closePopup.gameObject.SetActive(false);
+
+		ShowActivityPopup(false);
+		ShowWorkoutPopup(false);
+		ShowTeamPopup(false);
 	}
 }
